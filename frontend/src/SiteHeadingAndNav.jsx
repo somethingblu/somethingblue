@@ -15,16 +15,16 @@ export default function SiteHeadingAndNav() {
             <NavLink to="/about">About</NavLink>
           </ul>
           <ul>
-            <NavLink to="/todo">To Do</NavLink>
-          </ul>
-          <ul>
-            <NavLink to="/dashboard">Dash</NavLink>
+            <NavLink to="/budget">Budget</NavLink>
           </ul>
           <ul>
             <NavLink to="/contacts">Contacts</NavLink>
           </ul>
           <ul>
-            <NavLink to="/budget">Budget</NavLink>
+            <NavLink to="/dashboard">Dash</NavLink>
+          </ul>
+          <ul>
+            <NavLink to="/todo">To Do</NavLink>
           </ul>
         </ul>
       </nav>

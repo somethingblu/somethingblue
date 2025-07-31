@@ -23,7 +23,7 @@ function Home() {
       and <br></br> we will handle Something Blue”</p>
       <img className='main-one' src={one}></img>
 
-      <button id='main-butt' onClick={handleClick}>Start Here</button>
+      <button className='main-butt' onClick={handleClick}>Start Here</button>
       </div>
     </>
   )

@@ -12,19 +12,37 @@ p{
   z-index: 2;
 }
 
-.footer{
-  text-align: center;
-  margin-top: auto;
+li{
+  list-style: none;
+  background-image: url(../src/photos/heart.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  padding-left: 1.5rem;
+  background-size: 1rem 1rem;
+    z-index: 2;
 }
 
-.main-one{
+.footer {
+  text-align: center;
+  margin-top: 12rem;
+  padding: 1rem 0;
+  background-color: #e0f3ff; 
+  color: black; 
+  font-size: 0.9rem;
+  z-index: 1;
+  position: relative;
+}
+
+
+.main-one {
   position: absolute;
-  bottom: 15;
+  bottom: 0;
   left: 0;
   max-height: 25rem;
   transform: rotate(55deg);
   z-index: -1;
 }
+
 
 .main-two{
   top: 0;
@@ -48,7 +66,7 @@ p{
   text-align: center;
 }
 
-#main-butt{
+.main-butt{
   font-family: 'Satisfy', cursive;
   background-color: transparent;
   border: 1px solid white;
@@ -151,114 +169,764 @@ h2{
 
 
 /* todo page css */
-.todo-cont {
-  /* background-color: aqua; */
+body {
+  background-color: #f0f8ff; /* soft pastel blue */
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container holds it all */
+.todo-container {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Floral decor */
+.main-two {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  max-height: 20rem;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* Header */
+.heading-to {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #222;
+  text-transform: capitalize;
+}
+
+/* Form container card */
+.todo-cont {
+  background-color: #fff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Form layout */
+.todo-form {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
-  z-index: 3;
-}
-
-.todo-input{
-  /* background-color: black; */
   font-family: 'Satisfy', cursive;
 }
 
-.todo-select {
-  /* background-color: green; */
-  color: black;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
+/* Input field */
+.todo-input {
+  padding: 0.9rem 1rem;
   border: 1px solid #ccc;
-  font-family: 'Satisfy', cursive;
+  border-radius: 0.8rem;
+  background-color: #fff0f5;
+  font-size: 1rem;
+  width: 220px;
+  font-family: 'satisfy', cursive;
 }
 
-
-.todo-button{
-  background-color: pink;
-  font-family: 'Satisfy', cursive;
+.todo-input:focus {
+  outline: none;
+  border-color: #ffb6c1;
+  box-shadow: 0 0 6px #ffccd5;
+  font-family: 'satisfy', cursive;
 }
 
-.todo-section {
-  /* background-color: yellow; */
-  padding: 1rem;
-  margin: 1rem auto;
-  border-radius: 0.5rem;
-  flex-direction: column;
+/* Select dropdown */
+.todo-select {
+  font-family: 'Satisfy', cursive;
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+/* Add button */
+.todo-button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ffccd5;
+  color: #333;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #444;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'satisfy', cursive;
+}
+
+.todo-button:hover {
+  background-color: #ffb6c1;
+  transform: translateY(-2px);
+}
+
+/* Wrapper for all category sections */
+.todo-whole {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
-  max-width: 40rem;
+}
+
+/* Each category section (Hold, Currently, Finished) */
+.todo-section {
+  background-color: #ffe3ec;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 280px;
+  min-height: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .to-select {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 0.5rem;
-  /* border-radius: 0.3rem; */
-  /* background-color: #FFD6E0; */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
+/* To-do list items */
 .todo-list {
-  background-color: #FFD6E0;
-  color: black;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  list-style: none;
-  font-family: 'Satisfy', cursive;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.todo-whole {
+.todo-item {
+  background-color: #fff;
+  margin-bottom: 0.8rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
   display: flex;
-  flex-direction: row;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
-  justify-content: space-evenly;
-  gap: 2rem
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* X button */
 .delete-button {
-  background-color: #FBD87F;
+  background-color: #ffb6c1;
   border: none;
-  color: white;
+  border-radius: 0.5rem;
   padding: 0.3rem 0.6rem;
-  border-radius: 0.3rem;
   cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: background-color 0.2s ease;
 }
 
 .delete-button:hover {
-  background-color: #575A5E;
+  background-color: #ff5c8a;
 }
 
-.todo-three{
-  width: 20rem;
-  height: 20rem;
-  z-index: 1;
-}
-
-.todo-four{
-   z-index: 1;
-}
-
-.heading-to{
-  text-align: center;
-  font-size: 6rem;
-  z-index: 3;
-}
-/* sign up page css */
-/* log in page css */
 /* dashboard page css */
 
-.list-dash{
-    border: red;
-    height: max-content;
-    flex: 1;
+h5{
+  font-size: 3rem;
 }
 
-.user-dash{
+.main-desh {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
+
+/* To-do section */
+.todo-dash {
+  background-color: #fff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.todo-dash p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.list-dash {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-dash li {
+  background-color: #fff0f5;
+  margin-bottom: 0.7rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Right-side sections */
+.part-two {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Weather section */
+.weather {
+  background-color: #ffffff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.weather p {
+  margin: 0.5rem 0;
+}
+
+/* Budget + Progress wrapper */
+.proandbud {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Budget bar */
+.bud-bar,
+.progbar {
+  background-color: #ffffff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bud-bar img,
+.progbar img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}
+
+#cake,
+#drink,
+#aisle {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.sign {
+  background-color: #ffffff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.sign:hover {
+  background-color: #ffe4e1;
+  color: #000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.15); /* lighter overlay for subtle effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: white;          
+  padding: 2rem;   
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;            
+  max-width: 1000px;                 
+  width: 90vw;                   
+  margin: 2rem auto;                
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); 
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b5b95;  /* use the same purple-ish color as links */
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #d45c96;  /* hover color from links */
+}
+
+
 /* contacts page css */
+/* Overall container */
+.contacts-container {
+  background-color: #fff0f5;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Page title */
+.contacts-container h1 {
+  text-align: center;
+  background-color: #ffe4e1;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  color: #3d3d3d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* A-Z Navigation */
+.contacts-container p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contacts-container p a {
+  margin: 0 0.3rem;
+  color: #6b5b95;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contacts-container p a:hover {
+  color: #d45c96;
+}
+
+/* Form styling */
+.contacts-container form {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contacts-container input,
+.contacts-container textarea {
+  flex: 1 1 45%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  background-color: #fefefe;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.contacts-container textarea {
+  flex: 1 1 100%;
+  min-height: 100px;
+}
+
+.contacts-container input:focus,
+.contacts-container textarea:focus {
+  outline: none;
+  border-color: #f8a5c2;
+}
+
+/* Buttons */
+.contacts-container button {
+  padding: 0.6rem 1.5rem;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: #f9b5d0;
+  color: white;
+  border-radius: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contacts-container button:hover {
+  background-color: #f178b6;
+}
+
+/* Grouped Contacts List */
+.contacts-container h2 {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  color: #5a5a5a;
+}
+
+.contacts-container div[id] {
+  margin-bottom: 2rem;
+}
+
+.contacts-container div[id] > div {
+  background-color: #fffafd;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Contact field labels */
+.contacts-container strong {
+  color: #ba4e77;
+  display: block;
+  font-size: 1.05rem;
+}
+
+/* Images */
+.main-one,
+.main-two {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
 /* budget page css */
 
+/* Form box */
+.form {
+  background-color: #ffe4e1;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 0 auto 3rem auto;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+/* Labels + Inputs */
+.form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4c7182;
+  font-size: 1.1rem;
+}
+
+.form input {
+  width: 96%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #b8d2e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #1f2d3d;
+}
+
+/* Add button */
+.form button {
+    background-color: #f9b5d0;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #76a8c4;
+}
+
+/* Cake display */
+.cake-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  z-index: 2;
+}
+
+.cake {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+
+.cake-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(92, 147, 173, 0.4);
+  z-index: 2;
+  border-radius: 50%;
+  transition: height 0.5s ease-in-out;
+}
+/* Budget info inside cake container */
+.cake-container p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #3e5666;
+  z-index: 2;
+  position: relative;
+}
+
+
+/* Budget info text */
+p {
+  font-size: 1.1rem;
+  color: #3e5666;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative flower images */
+.main-one,
+.main-two {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.8;
+  max-width: 160px;
+  pointer-events: none;
+}
+
+.main-one {
+  bottom: 0;
+  left: 0;
+  transform: rotate(-25deg);
+}
+
+.main-two {
+  top: 0;
+  right: 0;
+  transform: rotate(15deg);
+}
+
+
+/* sign up page */
+body {
+  background-color: #f0f8ff; /* soft pastel blue */
+  margin: 0;
+  padding: 0;
+}
+
+.signup-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.signup-container h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.main-one {
+  position: absolute;
+  bottom: 10rem;
+  left: 0;
+  max-height: 22rem;
+  transform: rotate(55deg);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.main-two {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  max-height: 18rem;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.form-card {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border: 2px solid #ffe4e1; /* very light pink border like a card */
+}
+
+.login-input {
+  font-family: 'Satisfy', cursive;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  background-color: #fdfdfd;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #ffb6c1;
+  box-shadow: 0 0 6px #ffccd5;
+}
+
+.submit-btn {
+  font-family: 'Satisfy', cursive;
+  padding: 0.9rem;
+  font-size: 1rem;
+  background-color: #ffccd5;
+  color: #333;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffb6c1;
+  transform: translateY(-2px);
+}
+
+/* log in */
+body {
+  background-color: #f0f8ff; /* soft pastel blue */
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.main-one {
+  position: absolute;
+  bottom: 6rem;
+  left: 0;
+  max-height: 20rem;
+  transform: rotate(50deg);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.main-two {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  max-height: 18rem;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.form-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border: 2px solid #ffe4e1; /* soft pink card border */
+  z-index: 2;
+}
+
+.login-input {
+  font-family: 'Satisfy', cursive;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  background-color: #fdfdfd;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #ffb6c1;
+  box-shadow: 0 0 6px #ffccd5;
+}
+
+.submit-btn {
+  font-family: 'Satisfy', cursive;
+  padding: 0.9rem;
+  font-size: 1rem;
+  background-color: #ffccd5;
+  color: #333;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffb6c1;
+  transform: translateY(-2px);
+}
+
+.link-btn {
+  font-family: 'Satisfy', cursive;
+  background: none;
+  border: none;
+  color: #666;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding-top: 0.5rem;
+}
+
+.link-btn:hover {
+  color: #333;
+}

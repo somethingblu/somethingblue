@@ -1,4 +1,5 @@
 import './App.css'
+import PageNotFound from './pages/PageNotFound.jsx'
 import Home from '../src/pages/launch.jsx'
 import About from '../src/pages/aboutus.jsx'
 import Todo from '../src/pages/todo.jsx'
@@ -9,12 +10,13 @@ import Login from './pages/login.jsx'
 import Signup from './pages/signup.jsx'
 import { Routes, Route } from "react-router-dom";
 import SiteHeadingAndNav from './SiteHeadingAndNav.jsx'
+import CurrentUserContextProvider from './context/CurrentUserContextProvider.jsx'
 
 
 function App() {
 
   return (
-    <>  
+    <CurrentUserContextProvider>  
     <SiteHeadingAndNav />
       <main>
         <Routes>
@@ -26,11 +28,12 @@ function App() {
           <Route path="/Contacts" element={<Contacts />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>  
 
       <footer className="footer">© 2025 Something Blue. All rights reserved.</footer>
-    </>
+    </CurrentUserContextProvider>
   )
 }
 

@@ -1,24 +1,47 @@
-.navv{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    /* background-color: white; */
-    max-height: 5rem;
+header {
+  background-color: #f5faff;
+  padding: 0.6rem 1.5rem;  /* smaller vertical padding */
+  border-bottom: 1px solid #d1e2ef;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 5rem;  /* bigger logo */
+  width: auto;
 }
 
 .uls {
-    display: flex;
-    width: 80rem;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    gap: 2rem; 
+  list-style: none;
+  display: flex;
+  gap: 1rem;  /* tight spacing between links */
+  padding: 0;
+  margin: 0;
 }
 
+.uls ul {
+  margin: 0;
+  padding: 0;
+}
 
-.logo{
-    width: 7rem;
-    height: auto;
+.uls a {
+  text-decoration: none;
+  color: #3e5666;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.uls a:hover,
+.uls a.active {
+  background-color: #daeaf8;
 }
