@@ -16,10 +16,15 @@ app.use(handleCookie);
 app.use(express.json());
 app.use(logRoutes);
 
+const userRoutes = require('./routes/userRoutes')
 const todoRoutes = require('./routes/todoRoutes');
 const userControllers = require('./controllers/registerUser');
 const contactRoutes = require('./routes/contactRoutes')
 const budgetRoutes = require('./routes/budgetRoutes')
+const registryRoutes = require('./routes/registryRoutes')
+const playlistRoutes = require('./routes/playlistRoutes')
+const journalRoutes = require('./routes/journalRoutes')
+const calenderRoutes = require('./routes/calenderRoutes')
 
 // Auth routes
 app.post('/api/auth/signup', userControllers.registerUser);
@@ -27,9 +32,15 @@ app.post('/api/auth/login', userControllers.loginUser);
 app.get('/api/auth/me', userControllers.showMe);
 app.post('/api/auth/logout', userControllers.logoutUser);
 
+
 app.use('/todos', checkAuth, todoRoutes);
+app.use('/api/users', userRoutes)
 app.use('/api/contacts', contactRoutes)
 app.use('/api/budget', budgetRoutes)
+app.use('/api/registry_list', registryRoutes)
+app.use('/api/playlist', playlistRoutes)
+app.use('/api/journal', journalRoutes)
+app.use('/api/calendar', calenderRoutes)
 
 app.get('/', (req, res) => {
   res.send('Hello World! Server is working!');

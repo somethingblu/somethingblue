@@ -1,4 +1,4 @@
-
+const bcrypt = require('bcrypt');
 const User = require("../models/User");
 
 /* 
@@ -23,33 +23,39 @@ exports.showUser = async (req, res) => {
   res.send(user);
 };
 
+
 /* 
 PATCH /api/users/:id
 Updates a single user (if found) and only if authorized
 */
 exports.updateUser = async (req, res) => {
   console.log(req.body);
-  const { name, email, budget, wedding_date } = req.body;
+  const { name, email, password, budget, wedding_date } = req.body;
   if (!name) {
     return res.status(400).send({ message: "New username required." });
   }
 
   //grab the user id from the request params and the user id from the session
-  const userToModify = Number(req.params.id);
-  const userRequestingChange = Number(req.session.userId);
+  // const userToModify = Number(req.params.id);
+  const userId = Number(req.session.userId);
+
+  if (!userId){
+    return  res.status(401).send({message: 'Unauthorized'})
+  }
 
   //if the user id from the request params does not match the user id from the session
-  if (userRequestingChange !== userToModify) {
-    console.log("Requesting User ID (session):", req.session.userId);
-    console.log("User to Modify (param):", req.params.id);
-    return res.status(403).send({ message: "Unauthorized." });
-  }
+  // if (userRequestingChange !== userToModify) {
+  //   console.log("Requesting User ID (session):", req.session.userId);
+  //   console.log("User to Modify (param):", req.params.id);
+  //   return res.status(403).send({ message: "Unauthorized." });
+  // }
 
   //if they match then we know they want to modify their own user information
   const updatedUser = await User.update(
-    userToModify, //id
-   {name, 
-   email, 
+    userId, //id
+   {name,
+   email,
+   password, 
    budget, 
    wedding_date}
   );

@@ -102,15 +102,31 @@ const Budget = () => {
       }
     };
 
+    const handleDeleteExpense = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:8080/api/budget/${id}`, {
+      method: 'DELETE',
+      credentials: 'include',
+    });
+    if (!res.ok) throw new Error('Failed to delete expense');
+    
+    setExpenses(expenses.filter((expense) => expense.id !== id));
+  } catch (err) {
+    console.error('Error deleting expense:', err);
+  }
+};
+
+
   return (
     <div>
       <h1>Budget Tracker</h1>
 
+    <div className='budget-layout'>
       <div className="form">
         <label>Total Budget: ${Number(budget.toFixed(2))}</label>
         <form onSubmit={handleAddExpense}>
-          <select value={newExpense.contact_id} onChange={(e) => setNewExpense({...newExpense, contact_id: e.target.value })} required>
-          <option value="">Select a Contact</option>
+          <select className='select-value' value={newExpense.contact_id} onChange={(e) => setNewExpense({...newExpense, contact_id: e.target.value })} required>
+          <option value="" >Select a Contact</option>
           {contact.map((contacts) => (
             <option key={contacts.id} value={contacts.id}> {contacts.name} ({contacts.vendor_type})</option>
           ))}
@@ -136,24 +152,28 @@ const Budget = () => {
           <button type="submit">Add Expense</button>
         </form>
       </div>
-
+      
       <div className="cake-container">
+        <div className='cake-one'>
         <div
           className="cake-mask"
           style={{ height: `${percentUsed}%` }}
         ></div>
         <img src={cake} alt="cake" className="cake" />
+      </div>
+      <div>
       <p>Spent: ${Number(totalSpent.toFixed(2))} / ${Number(budget.toFixed(2))}</p>
-
-      <div> 
+      </div>
+      <div className='cake-two'> 
         {expenses.map((e, ind) => (
           <li key={ind}>
             {e.label}:${Number(e.amount_given || 0).toFixed(2)} / ${Number(e.price || 0).toFixed(2)}
+            <button onClick={() => handleDeleteExpense(e.id)} className='delete-button'>X</button>
           </li>
         ))}
       </div>
       </div>
-
+      </div>
 
       <img className="main-two" src={eight} alt="decor 2" />
       <img className="main-one" src={nine} alt="decor 1" />

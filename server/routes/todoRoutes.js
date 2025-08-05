@@ -5,7 +5,7 @@ const checkAuth = require('../middleware/checkAuth');
 
 router.get('/', todoController.getTodos);
 router.post('/', todoController.createTodos);
-router.put('/:id', todoController.updateTodo);
+router.patch('/:id', todoController.updateTodo);
 router.delete('/:id', todoController.deleteTodo);
 
 module.exports = router;

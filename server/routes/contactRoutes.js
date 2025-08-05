@@ -5,7 +5,7 @@ const checkAuth = require('../middleware/checkAuth')
 
 router.get('/', checkAuth, contactsController.getContacts)
 router.post('/', checkAuth, contactsController.createContacts)
-router.put('/:id', checkAuth, contactsController.updateContacts)
+router.patch('/:id', checkAuth, contactsController.updateContacts)
 router.delete('/:id', checkAuth, contactsController.deleteContact)
 
 module.exports = router

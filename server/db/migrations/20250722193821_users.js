@@ -3,20 +3,16 @@
  * @returns { Promise<void> }
  */
 
-exports.up = function (knex) {
-  return knex.schema.createTable("users", (table) => {
-    table.specificType("id", "serial").primary();
-    table.string("name").notNullable();
-    table.string("email").notNullable().unique();
-    table.string("password").notNullable();
-    table.decimal("budget");
-    table.date("wedding_date");
-    table.timestamp("date_created").defaultTo(knex.fn.now());
+exports.up = function(knex) {
+      return knex.schema.createTable('users', (table) => {
+        table.increments('id').primary();
+        table.string('name', 255).notNullable();
+        table.string('email', 255).notNullable();
+        table.string('password', 255).notNullable();
+        table.decimal('budget', 8, 2);
+        table.date('wedding_date');
+        table.timestamp('date_created').defaultTo(knex.fn.now());
   });
-};
-
-exports.down = function (knex) {
-  return knex.schema.dropTable("users");
 };
 
 /**
@@ -24,5 +20,5 @@ exports.down = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  
+  return knex.schema.dropTableIfExists('users');
 };

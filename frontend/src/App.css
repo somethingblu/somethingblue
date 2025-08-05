@@ -4,11 +4,13 @@ body{
 }
 
 h1 {
-  font-family: 'Allura', cursive;
+  font-family: "Abhaya Libre", serif;
+  font-weight: 400;
+  font-style: normal;
   z-index: 2;
 }
 p{
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   z-index: 2;
 }
 
@@ -67,7 +69,7 @@ li{
 }
 
 .main-butt{
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   background-color: transparent;
   border: 1px solid white;
   width: 13rem;
@@ -167,16 +169,9 @@ h2{
   z-index: 2;
 }
 
-
-/* todo page css */
-body {
-  background-color: #f0f8ff; /* soft pastel blue */
-  margin: 0;
-  padding: 0;
-}
-
 /* Main container holds it all */
-.todo-container {
+
+ .todo-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -204,7 +199,7 @@ body {
   text-transform: capitalize;
 }
 
-/* Form container card */
+Form container card
 .todo-cont {
   background-color: #fff;
   border: 2px solid #ffe4e1;
@@ -222,7 +217,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
 }
 
 /* Input field */
@@ -230,10 +225,10 @@ body {
   padding: 0.9rem 1rem;
   border: 1px solid #ccc;
   border-radius: 0.8rem;
-  background-color: #fff0f5;
+  background-color: white;
   font-size: 1rem;
   width: 220px;
-  font-family: 'satisfy', cursive;
+  /* font-family: 'satisfy', cursive; */
 }
 
 .todo-input:focus {
@@ -245,7 +240,7 @@ body {
 
 /* Select dropdown */
 .todo-select {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 0.9rem;
   border: 1px solid #ccc;
   border-radius: 0.8rem;
@@ -264,7 +259,7 @@ body {
   cursor: pointer;
   box-shadow: 2px 2px 0 #444;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  font-family: 'satisfy', cursive;
+  /* font-family: 'satisfy', cursive; */
 }
 
 .todo-button:hover {
@@ -283,7 +278,7 @@ body {
 
 /* Each category section (Hold, Currently, Finished) */
 .todo-section {
-  background-color: #ffe3ec;
+  background-color: white;
   border-radius: 1rem;
   padding: 1.5rem;
   width: 280px;
@@ -332,16 +327,51 @@ body {
 
 /* dashboard page css */
 
-h5{
-  font-size: 3rem;
+
+.welcome-con {
+  text-align: center;
+  margin-bottom: 2rem;
 }
+
+.welcome-con h5 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-butt {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sign {
+  background-color: #fff;
+  border: 2px solid #f7c6c7;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.sign:hover {
+  background-color: #ffe6e7;
+  border-color: #f19c9e;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
 
 .main-desh {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 2rem;
   padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* To-do section */
@@ -382,6 +412,75 @@ h5{
   width: 100%;
 }
 
+
+.weather-container {
+  padding: 1rem;
+  background-color: #e3f4fd;
+  border-radius: 1rem;
+  text-align: center;
+  /* font-family: sans-serif; */
+}
+
+.weather-container h1 {
+  margin-bottom: 1rem;
+  color: #1e2e3d;
+}
+
+.weather-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.weather-card {
+  width: 80px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 0 #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.weather-icon {
+  font-size: 1.5rem;
+}
+
+.weather-temp {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.weather-date {
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.countdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2px solid #ffe4e1;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.countdown div{
+  text-align: center;
+  font-size: larger;
+}
+
 /* Weather section */
 .weather {
   background-color: #ffffff;
@@ -412,6 +511,33 @@ h5{
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+.cake-two {
+  position: relative;
+  display: inline-block;
+  width: 15rem; 
+  height: auto;
+}
+
+.budget-dash{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Mask overlay */
+.second-mask {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+  pointer-events: none;
+  transition: height 0.5s ease-in-out;
+}
+
+
 .bud-bar img,
 .progbar img {
   max-width: 100%;
@@ -419,12 +545,40 @@ h5{
   margin: 0.5rem 0;
 }
 
-#cake,
-#drink,
-#aisle {
-  width: 60px;
+#cake {
+  width: 15rem;
   height: auto;
   margin-right: 1rem;
+}
+
+.aisle-con {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* adjust as needed */
+  margin: 0 auto;
+}
+
+#aisle {
+  /* width: 100%;
+  display: block; */
+  width: 15rem;
+  height: 15rem;
+  margin-right: 1rem;
+  transform: rotate(90deg);
+}
+
+#drink {
+  /* width: 4rem; */
+  position: absolute;
+  top: 50%; /* adjust vertically */
+  transform: translate(-50%, -50%);
+  width: 50px; 
+  transition: left 0.5s ease-in-out;
+}
+
+.progbar{
+  display: flex;
+  justify-content: center;
 }
 
 .sign {
@@ -468,6 +622,8 @@ h5{
   margin: 2rem auto;                
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); 
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-close {
@@ -486,10 +642,31 @@ h5{
   color: #d45c96;  /* hover color from links */
 }
 
+.select-value {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #3d3d3d;
+  font-size: 1rem;
+  font-family: inherit;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%236b5b95" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* contacts page css */
-/* Overall container */
-.contacts-container {
+.select-value:focus {
+  outline: none;
+  border-color: #d45c96;
+  box-shadow: 0 0 0 3px rgba(212, 92, 150, 0.2);
+}
+
+.contacts-container, .todo-cont {
   background-color: #fff0f5;
   padding: 2rem;
   border-radius: 1.5rem;
@@ -498,10 +675,9 @@ h5{
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Page title */
-.contacts-container h1 {
+.contacts-container h1, .cal-container h1, .name-date h1, .registry-section h1, .playlist-section h1, .todo-cont h1 {
   text-align: center;
-  background-color: #ffe4e1;
+  background-color: white;
   padding: 1rem 2rem;
   border-radius: 1rem;
   margin-bottom: 1.5rem;
@@ -509,8 +685,7 @@ h5{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* A-Z Navigation */
-.contacts-container p {
+.contacts-container p, .cal-container p{
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -526,8 +701,7 @@ h5{
   color: #d45c96;
 }
 
-/* Form styling */
-.contacts-container form {
+.contacts-container form, .name-date  form {
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 1rem;
@@ -539,7 +713,15 @@ h5{
 }
 
 .contacts-container input,
-.contacts-container textarea {
+.contacts-container textarea,
+.name-date input,
+.name-date textarea,
+.registry-section input,
+.registry-section textarea,
+.playlist-section input,
+.playlist-section textarea,
+.todo-form input,
+.todo-form textarea {
   flex: 1 1 45%;
   padding: 0.8rem 1rem;
   border: 1px solid #ddd;
@@ -560,7 +742,6 @@ h5{
   border-color: #f8a5c2;
 }
 
-/* Buttons */
 .contacts-container button {
   padding: 0.6rem 1.5rem;
   margin-top: 0.5rem;
@@ -577,7 +758,6 @@ h5{
   background-color: #f178b6;
 }
 
-/* Grouped Contacts List */
 .contacts-container h2 {
   margin-top: 2rem;
   font-size: 1.3rem;
@@ -596,7 +776,6 @@ h5{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* Contact field labels */
 .contacts-container strong {
   color: #ba4e77;
   display: block;
@@ -615,6 +794,13 @@ h5{
 }
 
 /* budget page css */
+
+.budget-layout {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
 
 /* Form box */
 .form {
@@ -667,33 +853,60 @@ h5{
 
 /* Cake display */
 .cake-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 20rem;
+  height: 20rem;
   margin: 2rem auto;
   z-index: 2;
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+  height: 40%;
+}
+
+.cake-one{
+  display: flex;
+  justify-content: center;
+  width: 40rem;
+  height: fit-content;
+  flex: 1;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.cake_two{
+ flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #f5faff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cake {
-  width: 100%;
-  height: 100%;
+  align-self: center;
+  width: 50%;
+  height: 50%;
   object-fit: cover;
-  border-radius: 50%;
   z-index: 1;
   position: relative;
 }
 
 .cake-mask {
   position: absolute;
-  bottom: 0;
+  top: 0; 
   left: 0;
   width: 100%;
-  background: rgba(92, 147, 173, 0.4);
+  height: 100%; 
+  background: #e0f3ff;
   z-index: 2;
-  border-radius: 50%;
   transition: height 0.5s ease-in-out;
 }
-/* Budget info inside cake container */
+
 .cake-container p {
   text-align: center;
   margin-top: 1rem;
@@ -703,8 +916,32 @@ h5{
   position: relative;
 }
 
+.cake-two ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 0 0;  /* margin top only */
+  max-height: 5rem;     /* optional: limit height with scroll */
+  overflow-y: auto;
+}
 
-/* Budget info text */
+.cake-two li {
+  padding: 0.5rem 0;   
+  margin-top: 1rem;
+  margin-left: 1rem;
+  height: 2rem;
+  border-bottom: 1px solid #d1e2ef;
+  color: #3e5666;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  cursor: default;
+}
+
+/* Optional: subtle hover effect */
+.cake-two li:hover {
+  background-color: #e6f0fb;
+}
+
+
 p {
   font-size: 1.1rem;
   color: #3e5666;
@@ -713,7 +950,6 @@ p {
   z-index: 2;
 }
 
-/* Decorative flower images */
 .main-one,
 .main-two {
   position: absolute;
@@ -794,7 +1030,7 @@ body {
 }
 
 .login-input {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 0.9rem 1rem;
   border: 1px solid #ddd;
   border-radius: 0.8rem;
@@ -809,7 +1045,7 @@ body {
 }
 
 .submit-btn {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 0.9rem;
   font-size: 1rem;
   background-color: #ffccd5;
@@ -885,7 +1121,7 @@ body {
 }
 
 .login-input {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 0.9rem 1rem;
   border: 1px solid #ddd;
   border-radius: 0.8rem;
@@ -900,7 +1136,7 @@ body {
 }
 
 .submit-btn {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   padding: 0.9rem;
   font-size: 1rem;
   background-color: #ffccd5;
@@ -917,7 +1153,7 @@ body {
 }
 
 .link-btn {
-  font-family: 'Satisfy', cursive;
+  /* font-family: 'Satisfy', cursive; */
   background: none;
   border: none;
   color: #666;
@@ -929,4 +1165,103 @@ body {
 
 .link-btn:hover {
   color: #333;
+}
+
+/* CALENDAR CSS */
+
+.cal-container, .registry-section,.playlist-section{
+  background-color: #fff0f5;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.dates{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border: 2px solid #fde2e4;
+  border-radius: 1rem;
+  font-family: 'Dancing Script', cursive;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.react-calendar__navigation button {
+  background: none;
+  color: #3e5666;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.react-calendar__navigation button:hover {
+  color: #f78da7;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  color: #3e5666;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.react-calendar__tile {
+  background: #fff0f5;
+  padding: 0.75rem 0.25rem;
+  border-radius: 0.75rem;
+  border: none;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.react-calendar__tile:enabled:hover {
+  background: #fbcfe8;
+  cursor: pointer;
+}
+
+.react-calendar__tile--now {
+  background: #ffe5ec;
+  font-weight: bold;
+  color: #c9184a;
+}
+
+.react-calendar__tile--active {
+  background: #f78da7;
+  color: white;
+}
+
+.react-calendar__tile--hasActive {
+  background: #fcd5ce;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #8e5a63;
+}
+
+.name-date{
+  max-width: 30rem;
+}
+
+.overall-lists {
+    display: flex;
+    flex-direction: row;
 }

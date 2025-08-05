@@ -5,6 +5,7 @@ import sixteen from '../photos/transparent/sixteen.PNG';
 import CurrentUserContext from '../context/current-user-context'; // update path
 
 const loginUser = async ({ name, password }) => {
+  
   try {
     const response = await fetch('http://localhost:8080/api/auth/login', {
       method: 'POST',
@@ -33,7 +34,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
-  if (currentUser) return <Navigate to={`/Dash`} />;
+  if (currentUser) return <Navigate to={`/Dashboard`} />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,9 +45,9 @@ const Login = () => {
       return setErrorText(error.message);
     }
 
-    //after making sure it is a good  log in we  save it correctly 
+    //after making sure it is a good log in we save it correctly 
     setCurrentUser(user);
-    nav(`/Dash`);
+    nav(`/Dashboard`);
   };
 
   const handleClick = () => {
@@ -78,7 +79,7 @@ const Login = () => {
         
         {errorText && <div className="error-message">{errorText}</div>}
         
-        <button type="submit" className="submit-btn">Login</button>
+        <button type="submit" className="sign">Login</button>
         <button type="button" onClick={handleClick} className="link-btn">
           Not a user? Click here to sign up
         </button>

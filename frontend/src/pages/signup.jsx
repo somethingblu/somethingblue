@@ -74,7 +74,7 @@ const Signup = () => {
         <input
           type="text"
           name="name"
-          placeholder="Enter name"
+          placeholder="Enter username"
           className="login-input"
           value={name}
           onChange={handleChange}
@@ -113,7 +113,7 @@ const Signup = () => {
           value={weddingDate}
           onChange={handleChange}
         />
-        <button type="submit" className="submit-btn">Submit</button>
+        <button type="submit" className="sign">Submit</button>
       </form>
     </div>
   );

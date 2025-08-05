@@ -50,15 +50,19 @@ exports.updateTodo = async (req, res) => {
 
   try {
     const [updated] = await knex('todo')
-      .where({ id, user_id: userId })
-      .update({ 
-        todo_title: todo_title.trim(), 
+      .where({ id: Number(id), user_id: userId })
+      .update({
+        todo_title: todo_title.trim(),
         content: content ? content.trim() : null,
-        status 
+        status: status
       })
       .returning('*');
 
     if (!updated) {
+      const exists = await knex('todo')
+        .where({ id: Number(id) })
+        .first();
+      console.log('Todo found for any user:', exists);
       return res.status(404).json({ error: 'Todo not found or access denied' });
     }
 
@@ -68,6 +72,7 @@ exports.updateTodo = async (req, res) => {
     res.status(500).json({ error: 'Failed to update todo' });
   }
 };
+
 
 exports.deleteTodo = async (req, res) => {
   const { id } = req.params;

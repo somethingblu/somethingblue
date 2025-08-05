@@ -121,6 +121,25 @@ const handleSubmit = async (e) => {
     return acc;
   }, {});
 
+  const handleDeleteContact = async (id) => {
+  if (!window.confirm('Are you sure you want to delete this contact?')) return;
+
+  try {
+    const res = await fetch(`http://localhost:8080/api/contacts/${id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    });
+
+    if (!res.ok) {
+      throw new Error('Failed to delete contact');
+    }
+
+    setContacts(contacts.filter((contact) => contact.id !== id));
+  } catch (err) {
+    console.error('Error deleting contact:', err);
+  }
+};
+
   return (
     <div className='contacts-container'>
       <h1>Contacts</h1>
@@ -140,8 +159,8 @@ const handleSubmit = async (e) => {
         <input name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
         <input name="socials" value={formData.socials} onChange={handleChange} placeholder="Socials" />
         <input name="address" value={formData.address} onChange={handleChange} placeholder="Address" />
-        <input name="borough" value={formData.borough} onChange={handleChange} placeholder="Borough" />
-        <input name="zip" value={formData.zip} onChange={handleChange} placeholder="ZIP" />
+        <input name="borough" value={formData.borough} onChange={handleChange} placeholder="City" />
+        <input name="zip" value={formData.zip} onChange={handleChange} placeholder="Zip" />
         <input name="availability" value={formData.availability} onChange={handleChange} placeholder="Availability" />
         <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Notes" />
 
@@ -164,6 +183,7 @@ const handleSubmit = async (e) => {
               <div>⩇⩇:⩇⩇ {contact.availability}</div>
               <div>✐ᝰ.ᐟ {contact.notes}</div>
               <button onClick={() => startEdit(contact.id)}>Edit</button>
+                <button onClick={() => handleDeleteContact(contact.id)}>Delete</button>
             </div>
           ))}
         </div>

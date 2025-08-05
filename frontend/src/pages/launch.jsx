@@ -19,11 +19,11 @@ function Home() {
     <div className="home-main">
       <img className='main-two' src={two}></img>
      <h1 id='main-name'>Something Blue</h1>
-     <p id='main-quote'>“You find Something Old, <br></br> Something New, Something Borrowed 
-      and <br></br> we will handle Something Blue”</p>
+     <p id='main-quote'>“You find Something Old, <br></br> Something New, Something Borrowed
+      and <br></br> we will handle <strong>Something Blue</strong>”</p>
       <img className='main-one' src={one}></img>
 
-      <button className='main-butt' onClick={handleClick}>Start Here</button>
+      <button className='sign' onClick={handleClick}>Start Here</button>
       </div>
     </>
   )

@@ -3,7 +3,7 @@ import six from '../photos/transparent/six.png';
 import seven from '../photos/transparent/seven.png';
 
 const Todo = () => {
-  const [dragChange, setDragChange] = useState(null)
+  // const [dragChange, setDragChange] = useState(null)
   const [input, setInput] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('on hold'); 
@@ -104,54 +104,64 @@ if  (res.ok){
     }
   };
 
-  const handleDragChange = (todo, categories) => {
-    setDragChange({
-      category: categories,
-      id: todo.id,
-    });
-  }
+  // const handleDragChange = (todo, categories) => {
+  //   setDragChange({
+  //     category: categories,
+  //     id: todo.id,
+  //   });
+  // }
 
   const handleDrag = (e) =>{
     e.preventDefault()
   }
 
-  const handleDrop = async (e, category) => {
-    e.preventDefault();
-    if (!dragChange) return;
-    
-    const { category: oldCategory, id } = dragChange;
-    if (oldCategory === category) return;
+const handleDrop = async (e, newCategory) => {
+  e.preventDefault();
 
-    try {
-      const res = await fetch(`http://localhost:8080/todos/${id}`, {
-        method: 'PATCH',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status: category }),
-      });
+  const draggedData = e.dataTransfer.getData('text/plain');
+  if (!draggedData) return;
 
-      if (!res.ok){
-        throw new Error ('Failed to change todo')
-      }
+  const { id, oldCategory } = JSON.parse(draggedData);
+  console.log('Dropping todo:', { id, oldCategory, newCategory });
 
-      setTodos(prev => {
-        const updatedTodos = { ...prev };
-        updatedTodos[oldCategory] = updatedTodos[oldCategory].filter(todo => todo.id !== id);
-        const movedTodo = prev[oldCategory].find(todo => todo.id === id);
-        if (movedTodo) {
-          movedTodo.status = category;
-          updatedTodos[category] = [movedTodo, ...updatedTodos[category]];
-        }
-        return updatedTodos;
-      });
+  if (oldCategory === newCategory) return;
 
-      setDragChange(null);
-    } catch (err) {
-      console.error('Failed to update todo status:', err);
+  const movedTodo = todos[oldCategory].find(t => t.id === Number(id));
+  if (!movedTodo) {
+    console.error('Todo not found in old category');
+    return;
+  }
+
+  try {
+    const res = await fetch(`http://localhost:8080/todos/${id}`, {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        todo_title: movedTodo.todo_title,
+        content: movedTodo.content,
+        status: newCategory,
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error('Failed to update todo status');
     }
-}
+
+    setTodos(prev => {
+      const updated = { ...prev };
+      updated[oldCategory] = updated[oldCategory].filter(t => t.id !== Number(id));
+      movedTodo.status = newCategory;
+      updated[newCategory] = [movedTodo, ...updated[newCategory]];
+      return updated;
+    });
+
+    console.log(`Todo ${id} moved from ${oldCategory} to ${newCategory}`);
+  } catch (err) {
+    console.error('Failed to update todo status:', err);
+  }
+};
+
 
   const formatCategoryName = (cat) => {
     if (cat === 'on hold') return 'On Hold';
@@ -161,10 +171,10 @@ if  (res.ok){
   return (
     <div className="todo-container">
       <img className="main-two" src={six} alt="Decoration" />
-      <h4 className="heading-to">To Do</h4>
 
       <div className="todo-cont">
-        <form className="todo-form" onSubmit={handleSubmit}>
+      <h1 className="heading-to">To Do</h1>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Todo title"
@@ -193,13 +203,13 @@ if  (res.ok){
 
       <div className="todo-whole">
         {Object.entries(todos).map(([cat, items]) => (
-          <div key={cat} className="todo-section" onDragOver={handleDrag} onDrop={(e) => {handleDrop(e, cat)}}>
+          <div key={cat} className="todo-section" onDragOver={(e) => handleDrag(e)} onDrop={(e) => {handleDrop(e, cat)}}>
             <h3 className="to-select">
               {formatCategoryName(cat)} Todos
             </h3>
             <ul className="todo-list">
               {items.map(todo => (
-                <li key={todo.id} id={todo.id} className="todo-item" draggable onDragStart={() => handleDragChange(todo, cat)}>
+                <li key={todo.id} id={todo.i} className="todo-item" draggable onDragStart={(e) => e.dataTransfer.setData('text/plain', JSON.stringify({ id: todo.id, oldCategory: cat }))}>
                   <div className="todo-content">
                     <h4 className="todo-title">{todo.todo_title}</h4>
                     {todo.content && (
