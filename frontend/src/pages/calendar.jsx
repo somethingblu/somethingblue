@@ -107,7 +107,12 @@ const handleDelete = async (id) => {
                  <h1>Upcoming:</h1>
                     <ul>
                 {events.map((item, id) => (
-                    <li key={id}>{item.event_name} - {item.date_due} {item.desciption}
+                    <li key={id}>{item.event_name} - {new Date(item.date_due).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+        <ul> {item.desciption}</ul>
                     <button onClick={() => handleDelete(item.id)}>X</button>
                     </li>
                 ))}
@@ -123,7 +128,7 @@ const handleDelete = async (id) => {
                             <input name='date_due' value={form.date_due} onChange={handleChange} type='date'required></input>
                             {/* <p>Enter End Date:</p>
                             <input type='date' placeholder='Enter end date'required></input> */}
-                            <textarea name='desciption' type='text' value={form.desciption} onChange={handleChange} placeholder='Notes'></textarea>
+                            <textarea name='desciption' type='text' value={form.desciption} onChange={handleChange} placeholder='Is there a time it needs to be done? Extra notes'></textarea>
                             <button>Submit here</button>
                         </form>
                     </div>

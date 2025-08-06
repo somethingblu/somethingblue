@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CurrentUserContext from '../context/current-user-context';
 import seventeen from '../photos/transparent/seventeen.PNG'
 import eighteen from '../photos/transparent/eighteen.PNG'
 
 const Signup = () => {
+  const nav = useNavigate()
   const [errorText, setError] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [budget, setBudget] = useState('');
   const [weddingDate, setWeddingDate] = useState('');
+  const { setCurrentUser } = useContext(CurrentUserContext);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,6 +57,8 @@ const Signup = () => {
 
       const user = await response.json();
       console.log('User registered:', user);
+       setCurrentUser(user.id)
+       nav('/dashboard')
     
       setName('');
       setEmail('');
@@ -63,6 +71,25 @@ const Signup = () => {
       console.error(err);
     }
   };
+
+  useEffect(() => {
+  const fetchCurrentUser = async () => {
+    try {
+      const res = await fetch('/api/auth/me', {
+        credentials: 'include',
+      });
+      if (res.ok) {
+        const user = await res.json();
+        setCurrentUser(user);
+      }
+    } catch (err) {
+      console.error('Failed to fetch user on load:', err);
+    }
+  };
+
+  fetchCurrentUser();
+}, []);
+
 
   return (
     <div className="signup-container">
