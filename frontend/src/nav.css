@@ -1,0 +1,60 @@
+.dark-mode nav{
+  background-color: gray;
+}
+
+.dark-mode header{
+  background-color: grey;
+  padding: 0.6rem 1.5rem;
+  /* border-bottom: 1px solid #d1e2ef; */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header {
+  background-color: hsl(210, 100%, 98%);
+  padding: 0.6rem 1.5rem;
+  /* border-bottom: 1px solid #d1e2ef; */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navv {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 5rem;
+  width: auto;
+}
+
+.uls {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.uls li{
+  list-style: none;
+}
+
+.uls a {
+  text-decoration: none;
+  color: #3e5666;
+  font-size: 1.1rem; 
+  padding: 0.5rem 1rem; 
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+
+.uls a:hover,
+.uls a.active {
+  background-color: #daeaf8;
+}
