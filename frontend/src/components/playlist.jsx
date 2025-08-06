@@ -94,13 +94,34 @@ const handleDelete = async (id) => {
 
     return (
             <div className='playlist-section'>
-                <h1>Add to your wedding list playlist:</h1>
-                <form onSubmit={handleSubmit}>
-                    <input value={form.song_name} name='song_name' placeholder='Song Name'  onChange={handleChange}></input>
-                    <input value={form.song_artist} name='song_artist' placeholder='Song Artist' onChange={handleChange}></input>
-                    <input value={form.song_link} name='song_link' placeholder='Song Link' onChange={handleChange}></input>
-                    <button>Submit</button>
-                </form>
+  <h1>Add to your wedding list playlist:</h1>
+            <div className="playlist-container">
+  <form onSubmit={handleSubmit} className="playlist-form">
+    <input
+      className="playlist-input"
+      value={form.song_name}
+      name="song_name"
+      placeholder="Song Name"
+      onChange={handleChange}
+    />
+    <input
+      className="playlist-input"
+      value={form.song_artist}
+      name="song_artist"
+      placeholder="Song Artist"
+      onChange={handleChange}
+    />
+    <input
+      className="playlist-input"
+      value={form.song_link}
+      name="song_link"
+      placeholder="Song Link"
+      onChange={handleChange}
+    />
+    <button className="playlist-submit">Submit</button>
+  </form>
+</div>
+
                 <h1>Current Playlist:</h1>
             <ul>
                 {music.map((song, id) => (

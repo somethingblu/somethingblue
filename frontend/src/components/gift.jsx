@@ -100,21 +100,23 @@ const handleDelete = async (id) => {
     return (
             <div className='registry-section'>
             <h1>Track your gift registry here!</h1>
-            <form onSubmit={handleSubmit}>
-                <input name='registry_name' value={form.registry_name} placeholder='Item Name' onChange={handleChange}></input>
-                <input name='price' value={form.price} placeholder='Price' onChange={handleChange}></input>
-                <input name='description'  value={form.description} placeholder='description' onChange={handleChange}></input>
+              <div className="playlist-container">
+            <form onSubmit={handleSubmit} className="playlist-form">
+                <input  className="playlist-input" name='registry_name' value={form.registry_name} placeholder='Item Name' onChange={handleChange}></input>
+                <input className="playlist-input" name='price' value={form.price} placeholder='Price' onChange={handleChange}></input>
+                <input className="playlist-input" name='description'  value={form.description} placeholder='description' onChange={handleChange}></input>
                 <p>Has it been purchased?</p>
-                    <label>
+                  <label>
                  <input type="radio" name="was_purchased" value="TRUE" checked={form.was_purchased === 'TRUE'} onChange={handleChange} />
                     Yes
-                </label>
+                </label> 
                 <label>
                 <input type="radio" name="was_purchased" value="FALSE" checked={form.was_purchased === 'FALSE'} onChange={handleChange} />
                     No
                 </label>
-                <button>Submit</button>
+                <button className="playlist-submit" >Submit</button>
             </form>
+            </div>
             <h1>Current Registry List:</h1>
          <ul>
   {gift.map((item) => (

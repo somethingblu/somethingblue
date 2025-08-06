@@ -115,7 +115,7 @@ class User {
     `;
     const result = await knex.raw(query, [name, 
     email, 
-    password || passwordHash, 
+    password, 
     budget, 
     wedding_date,
     id]);

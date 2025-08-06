@@ -75,10 +75,15 @@ exports.deleteJournal = async (req, res) => {
   const { id } = req.params;
   const userId = req.session.userId;
 
+  console.log('DELETE request received for id:', id);
+  console.log('Session userId:', userId);
+
   try {
     const deleteJournal = await knex('journal')
       .where({ id, user_id: userId })
       .del();
+
+    console.log('Rows deleted:', deleteJournal);
 
     if (deleteJournal === 0) {
       return res.status(404).json({ error: 'Entry not found or access denied' });

@@ -119,11 +119,10 @@ const Budget = () => {
 
   return (
     <div>
-      <h1>Budget Tracker</h1>
-
+      <br></br>
     <div className='budget-layout'>
       <div className="form">
-        <label>Total Budget: ${Number(budget.toFixed(2))}</label>
+        <h1>Total Budget: ${Number(budget.toFixed(2))}</h1>
         <form onSubmit={handleAddExpense}>
           <select className='select-value' value={newExpense.contact_id} onChange={(e) => setNewExpense({...newExpense, contact_id: e.target.value })} required>
           <option value="" >Select a Contact</option>
@@ -164,13 +163,15 @@ const Budget = () => {
       <div>
       <p>Spent: ${Number(totalSpent.toFixed(2))} / ${Number(budget.toFixed(2))}</p>
       </div>
-      <div className='cake-two'> 
+      <div className='dates'> 
+        <ul>
         {expenses.map((e, ind) => (
           <li key={ind}>
             {e.label}:${Number(e.amount_given || 0).toFixed(2)} / ${Number(e.price || 0).toFixed(2)}
             <button onClick={() => handleDeleteExpense(e.id)} className='delete-button'>X</button>
           </li>
         ))}
+        </ul>
       </div>
       </div>
       </div>

@@ -9,7 +9,6 @@ const loginUser = async ({ name, password }) => {
   try {
     const response = await fetch('http://localhost:8080/api/auth/login', {
       method: 'POST',
-      // ensures cookies are sent and recieved with the request !!!
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
@@ -45,7 +44,6 @@ const Login = () => {
       return setErrorText(error.message);
     }
 
-    //after making sure it is a good log in we save it correctly 
     setCurrentUser(user);
     nav(`/Dashboard`);
   };

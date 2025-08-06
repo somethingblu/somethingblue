@@ -1,5 +1,5 @@
 header {
-  background-color: #f5faff;
+  background-color: hsl(210, 100%, 98%);
   padding: 0.6rem 1.5rem;
   border-bottom: 1px solid #d1e2ef;
   position: sticky;
@@ -27,14 +27,19 @@ header {
   margin: 0;
 }
 
+.uls li{
+  list-style: none;
+}
+
 .uls a {
   text-decoration: none;
   color: #3e5666;
-  font-size: 0.9rem;
-  padding: 0.35rem 0.75rem;
+  font-size: 1.1rem; 
+  padding: 0.5rem 1rem; 
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
+
 
 .uls a:hover,
 .uls a.active {

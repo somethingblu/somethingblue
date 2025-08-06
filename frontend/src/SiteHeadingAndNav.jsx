@@ -10,9 +10,9 @@ export default function SiteHeadingAndNav() {
   return (
     <header>
       <nav className="navv">
-      <Link to="/" id="logo" className="ct-navbar-logo">
-        <img src={logo} alt="Site Logo" className="logo" />
-      </Link>
+        <Link to="/" id="logo" className="ct-navbar-logo">
+          <img src={logo} alt="Site Logo" className="logo" />
+        </Link>
 
         <ul className="uls">
           {currentUser && (
@@ -20,7 +20,7 @@ export default function SiteHeadingAndNav() {
               <NavLink to="/dashboard">Dash</NavLink>
             </ul>
           )}
-          <ul >
+          <ul>
             <NavLink to="/about">About</NavLink>
           </ul>
           <ul>

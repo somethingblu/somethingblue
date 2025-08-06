@@ -4,7 +4,7 @@ exports.getContacts = async (req, res)  => {
     const userId = req.session.userId;
 
     try{
-        const contact = await knex ('contacts')
+      const contact = await knex ('contacts')
       .where({ user_id: userId })
       .orderBy('name'); 
     res.json(contact);

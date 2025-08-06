@@ -118,15 +118,6 @@ const handleDelete = async (id) => {
                     <div> 
                         <form onSubmit={handleSubmit}>
                             <input value={form.event_name} name='event_name' placeholder='Event Name'required onChange={handleChange}></input>
-                            {/* <select>
-                                <option>Daily</option>
-                                <option>Weekly</option>
-                                <option>Bi-weekly</option>
-                                <option>3 Months</option>
-                                <option>6 Months</option>
-                                <option>9 Months</option>
-                                <option>1 Year</option>
-                            </select> */}
                             <br></br>
                             <p>Enter Start Date:</p>
                             <input name='date_due' value={form.date_due} onChange={handleChange} type='date'required></input>

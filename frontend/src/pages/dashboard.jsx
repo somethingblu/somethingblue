@@ -6,10 +6,13 @@ import Countdown from '../components/countdown.jsx';
 import Weather from '../components/weather.jsx'
 import Bud from '../components/budget.jsx'
 import Prog from '../components/progress.jsx'
+import { useContext } from 'react';
+import CurrentUserContext from '../context/current-user-context';
 import { useNavigate } from 'react-router-dom';
 
 const Dash = () => {
   const nav = useNavigate()
+  const { setCurrentUser } = useContext(CurrentUserContext);
   const [openModal, setOpenModal] = useState(false)
   const [todo, setTodo] = useState([])
   let [name, setName] = useState('')
@@ -60,6 +63,7 @@ const Dash = () => {
 
     if (res.ok) {
       console.log('Signed out');
+      setCurrentUser(null)
       nav('/')
     } else {
       console.error('Failed to sign out');
