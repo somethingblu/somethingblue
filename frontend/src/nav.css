@@ -1,7 +1,20 @@
+.dark-mode nav{
+  background-color: gray;
+}
+
+.dark-mode header{
+  background-color: grey;
+  padding: 0.6rem 1.5rem;
+  /* border-bottom: 1px solid #d1e2ef; */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 header {
   background-color: hsl(210, 100%, 98%);
   padding: 0.6rem 1.5rem;
-  border-bottom: 1px solid #d1e2ef;
+  /* border-bottom: 1px solid #d1e2ef; */
   position: sticky;
   top: 0;
   z-index: 100;
