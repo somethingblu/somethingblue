@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <img className='main-two' src={fourteen} alt="flower top right" />
-      <h1>Log In Here</h1>
+      <h2>Log In Here</h2>
 
       <form onSubmit={handleSubmit} className="form-card">
         <input 
@@ -79,7 +79,7 @@ const Login = () => {
         
         <button type="submit" className="sign">Login</button>
         <button type="button" onClick={handleClick} className="link-btn">
-          Not a user? Click here to sign up
+          Not a user? Click here to get started
         </button>
 
         <img className='main-one' src={sixteen} alt="flower bottom left" />

@@ -4,40 +4,14 @@ import seven from '../photos/transparent/seven.png';
 
 const Todo = () => {
   // const [dragChange, setDragChange] = useState(null)
-  const [input, setInput] = useState('');
-  const [content, setContent] = useState('');
-  const [category, setCategory] = useState('on hold'); 
-  const [todos, setTodos] = useState({
-    'on hold': [],
-    'currently': [],
-    'finished': [],
-  });
-
-  useEffect(() => {
-    fetch('http://localhost:8080/todos', {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => {
-        const grouped = {
-          'on hold': [],
-          'currently': [],
-          'finished': [],
-        };
-        console.log(data)
-      if (!Array.isArray(data)) {
-  console.error('Expected an array but got:', data);
-  return;
-}
-
-data.forEach(todo => {
-  grouped[todo.status || 'on hold'].push(todo);
-});
-        setTodos(grouped);
-      })
-      .catch(err => console.error('Fetch todos failed:', err));
-  }, []);
+      const [input, setInput] = useState('');
+      const [content, setContent] = useState('');
+      const [category, setCategory] = useState('on hold'); 
+      const [todos, setTodos] = useState({
+        'on hold': [],
+        'currently': [],
+        'finished': [],
+      });
 
   const handleTitleChange = (e) => setInput(e.target.value);
   const handleContentChange = (e) => setContent(e.target.value);
@@ -88,6 +62,32 @@ if  (res.ok){
     }
   };
 
+  useEffect(() => {
+    fetch('http://localhost:8080/todos', {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then(res => res.json())
+      .then(data => {
+        const grouped = {
+          'on hold': [],
+          'currently': [],
+          'finished': [],
+        };
+        console.log(data)
+      if (!Array.isArray(data)) {
+  console.error('Expected an array but got:', data);
+  return;
+}
+
+data.forEach(todo => {
+  grouped[todo.status || 'on hold'].push(todo);
+});
+        setTodos(grouped);
+      })
+      .catch(err => console.error('Fetch todos failed:', err));
+  }, []);
+
   const handleDelete = async (cat, id) => {
     try {
       await fetch(`http://localhost:8080/todos/${id}`, {
@@ -103,13 +103,6 @@ if  (res.ok){
       console.error('Failed to delete todo:', err);
     }
   };
-
-  // const handleDragChange = (todo, categories) => {
-  //   setDragChange({
-  //     category: categories,
-  //     id: todo.id,
-  //   });
-  // }
 
   const handleDrag = (e) =>{
     e.preventDefault()
@@ -162,45 +155,43 @@ const handleDrop = async (e, newCategory) => {
   }
 };
 
-
   const formatCategoryName = (cat) => {
     if (cat === 'on hold') return 'On Hold';
     return cat.charAt(0).toUpperCase() + cat.slice(1);
   };
 
   return (
-    <div className="todo-container">
-      <img className="main-two" src={six} alt="Decoration" />
-
-      <div className="todo-cont">
-      <h1 className="heading-to">To Do</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Todo title"
-            value={input}
-            onChange={handleTitleChange}
-            className="todo-input"
-            required
-          />
-          <textarea
-            placeholder="Content (optional)"
-            value={content}
-            onChange={handleContentChange}
-            className="todo-textarea"
-            rows="3"
-          />
-          <select value={category} onChange={handleCategoryChange} className="todo-select">
-            <option value="on hold">On Hold</option>
-            <option value="currently">Currently</option>
-            <option value="finished">Finished</option>
-          </select>
-          <button type="submit" className="todo-button" disabled={!input.trim()}>
-            Add
-          </button>
-        </form>
-      </div>
-
+  <div className="todo-container">
+    
+          <div className="todo-cont">
+          <h1 className="heading-to">To Do</h1>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Todo title"
+                value={input}
+                onChange={handleTitleChange}
+                className="todo-input"
+                required
+              />
+              <textarea
+                placeholder="Content (optional)"
+                value={content}
+                onChange={handleContentChange}
+                className="todo-textarea"
+                rows="3"
+              />
+              <select value={category} onChange={handleCategoryChange} className="todo-select">
+                <option value="on hold">On Hold</option>
+                <option value="currently">Currently</option>
+                <option value="finished">Finished</option>
+              </select>
+              <button type="submit" className="todo-button" disabled={!input.trim()}>
+                Add
+              </button>
+            </form>
+          </div>
+  <img className="main-two" src={six} alt="Decoration" />
       <div className="todo-whole">
         {Object.entries(todos).map(([cat, items]) => (
           <div key={cat} className="todo-section" onDragOver={(e) => handleDrag(e)} onDrop={(e) => {handleDrop(e, cat)}}>

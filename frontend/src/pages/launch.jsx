@@ -18,7 +18,7 @@ function Home() {
     <>
     <div className="home-main">
       <img className='main-two' src={two}></img>
-     <h1 id='main-name'>Something Blue</h1>
+     <h2 id='main-name'>Something Blue</h2>
      <p id='main-quote'>“You find Something Old, <br></br> Something New, Something Borrowed
       and <br></br> we will handle <strong>Something Blue</strong>”</p>
       <img className='main-one' src={one}></img>

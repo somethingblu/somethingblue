@@ -142,16 +142,9 @@ const handleSubmit = async (e) => {
 
   return (
     <div className='contacts-container'>
+
+      <div className='contact-form'>
       <h1>Contacts</h1>
-
-      <p>
-        {'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('').map((letter) => (
-          <a key={letter} href={`#${letter}`}>
-            {letter}
-          </a>
-        ))}
-      </p>
-
       <form onSubmit={handleSubmit}>
         <input name="name" value={formData.name} onChange={handleChange} placeholder="Name *" required />
         <input name="vendor_type" value={formData.vendor_type} onChange={handleChange} placeholder="Vendor Type *" required />
@@ -163,13 +156,14 @@ const handleSubmit = async (e) => {
         <input name="zip" value={formData.zip} onChange={handleChange} placeholder="Zip" />
         <input name="availability" value={formData.availability} onChange={handleChange} placeholder="Availability" />
         <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Notes" />
-
         <button type="submit">{editingId ? 'Update' : 'Add'} Contact</button>
       </form>
+      </div>
 
       <img className="main-one" src={twelve} />
       <img className="main-two" src={thirteen} />
 
+      <div className='display-contact'>
       {Object.keys(grouped).sort().map((letter) => (
         <div key={letter} id={letter}>
           <h2>{letter}</h2>
@@ -182,12 +176,25 @@ const handleSubmit = async (e) => {
               <div>𖠿 {contact.address}, {contact.borough}, {contact.zip}</div>
               <div>⩇⩇:⩇⩇ {contact.availability}</div>
               <div>✐ᝰ.ᐟ {contact.notes}</div>
+              <div className='contact-butts'>
               <button onClick={() => startEdit(contact.id)}>Edit</button>
                 <button onClick={() => handleDeleteContact(contact.id)}>Delete</button>
+                </div>
             </div>
           ))}
         </div>
       ))}
+      </div>
+
+      <div className='letter-search'>
+  <ul>
+    {'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('').map((letter) => (
+      <ul key={letter}>
+        <a href={`#${letter}`}>{letter}</a>
+      </ul>
+    ))}
+  </ul>
+</div>
     </div>
   );
 };

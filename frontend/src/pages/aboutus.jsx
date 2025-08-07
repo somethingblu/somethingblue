@@ -7,7 +7,7 @@ function about() {
 
   return (
     <>
-    <h1 className='about-head'>About Us</h1>
+    <h5 className='about-head'>About Us</h5>
 
     <img className='main-one' src={ten}></img>
     <div className='about-main'>
@@ -22,7 +22,7 @@ function about() {
           <img className='about-example'src={example}></img>
     </div>
       <img className='main-two' src={eleven}></img>
-        <h2>Meet the Team</h2>
+        <h3>Meet the Team</h3>
     <div className='about-me'> 
         <img id='me' src={me}></img>
         <p className='about-p'> Irma Barrios 

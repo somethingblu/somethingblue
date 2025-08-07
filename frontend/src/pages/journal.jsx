@@ -113,7 +113,7 @@ if (imageUrl) {
       <img className="main-one" src={twenty} />
       <img className="main-two" src={twentyone} />
 
-      <div className='contacts-container'>
+      <div className='todo-cont'>
         <h1>Journal</h1>
         <form onSubmit={handleSubmit}>
           <input

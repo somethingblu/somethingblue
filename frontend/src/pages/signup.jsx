@@ -16,6 +16,10 @@ const Signup = () => {
   const { setCurrentUser } = useContext(CurrentUserContext);
 
 
+  const handleClick = () => {
+    nav('/login');
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'name') setName(value);
@@ -93,7 +97,7 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
       <img className='main-one' src={seventeen} alt="flower left" />
       <img className='main-two' src={eighteen} alt="flower right" />
       {errorText && <p className="error-message">{errorText}</p>}
@@ -141,6 +145,9 @@ const Signup = () => {
           onChange={handleChange}
         />
         <button type="submit" className="sign">Submit</button>
+      <button type="button" onClick={handleClick} className="link-btn">
+          Already a user? Click here to sign back in
+        </button>
       </form>
     </div>
   );

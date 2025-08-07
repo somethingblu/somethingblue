@@ -4,9 +4,17 @@
   background-color: #1a2433;
 }
 
-/* .dark-mode p, h1, h2, h3, h4, h5{
-  color: white;
-} */
+h5{
+  font-family: "Abhaya Libre", serif;
+  background-color: transparent;
+  text-align: center;
+  font-size: 6rem;
+  /* z-index: 2; */
+}
+
+.about-head{
+  height: 3rem;
+}
 
 body{
     background-color: #e0f3ff;
@@ -19,8 +27,16 @@ h1 {
   font-weight: 400;
   font-style: normal;
   z-index: 2;
+  text-align: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  color: #3d3d3d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 p{
+  font-size: 45px;
   z-index: 2;
 }
 
@@ -91,15 +107,6 @@ li{
   z-index: 2;
 }
 
-/* about us page css */
-.about-head {
-  text-align: center;
-  font-size: 6rem;
-  margin-top: 2rem;
-  z-index: 2;
-  color: #2c3e50;
-}
-
 .about-main {
   display: flex;
   flex-direction: column;
@@ -151,14 +158,6 @@ li{
   object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.main-one,
-.main-two {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 1rem;
 }
 
 h2 {
@@ -215,16 +214,6 @@ h2 {
   padding: 3rem 1rem;
   min-height: 100vh;
   text-align: center;
-}
-
-/* Floral decor */
-.main-two {
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  max-height: 20rem;
-  opacity: 0.7;
-  z-index: -1;
 }
 
 .todo-cont {
@@ -358,8 +347,8 @@ form {
   background-color: #ff5c8a;
 }
 
-/* dashboard page css */
 
+/* dashboard page css */
 
 .welcome-con {
   text-align: center;
@@ -569,7 +558,6 @@ form {
   transition: height 0.5s ease-in-out;
 }
 
-
 .bud-bar img,
 .progbar img {
   max-width: 100%;
@@ -680,8 +668,64 @@ form {
   box-shadow: 0 0 0 3px rgba(212, 92, 150, 0.2);
 }
 
-.contacts-container, .todo-cont {
-  background-color: #fff0f5;
+.contact-form{
+  width: 40rem;
+}
+
+.display-contact{
+  max-height: 55rem;
+  overflow-y: auto;
+}
+
+/* Scrollbar styles */
+.display-contact::-webkit-scrollbar {
+  width: 10px;
+}
+
+.display-contact::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+.display-contact::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+.display-contact::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.letter-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.letter-search ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem; /* space between letters */
+}
+
+.letter-search a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.letter-search a:hover {
+  background-color: #cce7ff;
+}
+
+.todo-cont{
+   background-color: #fff0f5;
   padding: 2rem;
   border-radius: 1.5rem;
   max-width: 1000px;
@@ -689,33 +733,40 @@ form {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
-.contacts-container h1, .cal-container h1, .name-date h1, .registry-section h1, .playlist-section h1, .todo-cont h1 {
-  text-align: center;
-  background-color: white;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  margin-bottom: 1.5rem;
-  color: #3d3d3d;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+.contact-butts{
+  display: flex;
+  justify-content: space-around;
 }
 
-.contacts-container p, .cal-container p{
+.contacts-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #fff0f5;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 90rem;
+  margin: 2rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.todo-cont p, .cal-container p{
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.contacts-container p a {
+.todo-cont p a {
   margin: 0 0.3rem;
   color: #6b5b95;
   text-decoration: none;
   font-weight: 500;
 }
 
-.contacts-container p a:hover {
+.todo-cont p a:hover {
   color: #d45c96;
 }
 
-.contacts-container form, .name-date  form {
+.contacts-container form, .todo-cont form, .name-date  form {
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 1rem;
@@ -730,6 +781,8 @@ form {
 .contacts-container textarea,
 .name-date input,
 .name-date textarea,
+.todo-cont input,
+.todo-cont textarea,
 .registry-section input,
 .registry-section textarea,
 .playlist-section input,
@@ -743,7 +796,7 @@ form {
   transition: border-color 0.3s ease;
 }
 
-.contacts-container textarea {
+.contacts-container textarea, .todo-cont textarea {
   flex: 1 1 100%;
   min-height: 100px;
 }
@@ -752,22 +805,6 @@ form {
 .contacts-container textarea:focus {
   outline: none;
   border-color: #f8a5c2;
-}
-
-.contacts-container button {
-  padding: 0.6rem 1.5rem;
-  margin-top: 0.5rem;
-  border: none;
-  background-color: #f9b5d0;
-  color: white;
-  border-radius: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contacts-container button:hover {
-  background-color: #f178b6;
 }
 
 .contacts-container h2 {
@@ -794,16 +831,6 @@ form {
   font-size: 1.05rem;
 }
 
-/* Images */
-.main-one,
-.main-two {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 2rem auto;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
 
 /* budget page css */
 .budget-layout {
@@ -959,17 +986,23 @@ p {
 }
 
 .main-one {
-  bottom: 0;
+  position: absolute;
+  bottom: 9rem;
   left: 0;
-  transform: rotate(-25deg);
+  max-height: 22rem;
+  transform: rotate(55deg);
+  z-index: -1;
+  opacity: 0.7;
 }
 
 .main-two {
-  top: 0;
+  position: absolute;
+  top: 3rem;
   right: 0;
-  transform: rotate(15deg);
+  max-height: 18rem;
+  opacity: 0.7;
+  z-index: -1;
 }
-
 
 /* sign up page */
 body {
@@ -994,25 +1027,6 @@ body {
   margin-bottom: 2rem;
   font-weight: 500;
   letter-spacing: 1px;
-}
-
-.main-one {
-  position: absolute;
-  bottom: 10rem;
-  left: 0;
-  max-height: 22rem;
-  transform: rotate(55deg);
-  z-index: -1;
-  opacity: 0.7;
-}
-
-.main-two {
-  position: absolute;
-  top: 3rem;
-  right: 0;
-  max-height: 18rem;
-  opacity: 0.7;
-  z-index: -1;
 }
 
 .form-card {
@@ -1060,13 +1074,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* log in */
-body {
-  background-color: #f0f8ff; /* soft pastel blue */
-  margin: 0;
-  padding: 0;
-}
-
 .login-container {
   position: relative;
   display: flex;
@@ -1084,25 +1091,6 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: capitalize;
-}
-
-.main-one {
-  position: absolute;
-  bottom: 6rem;
-  left: 0;
-  max-height: 20rem;
-  transform: rotate(50deg);
-  z-index: -1;
-  opacity: 0.7;
-}
-
-.main-two {
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  max-height: 18rem;
-  z-index: -1;
-  opacity: 0.7;
 }
 
 .form-card {
@@ -1478,7 +1466,8 @@ li button:hover {
   box-shadow: 0 0 5px white;
 }
 
-.playlist-submit {
+.playlist-submit, .contacts-container button, .submit-button{
+  align-self: center;
   padding: 0.85rem 1.5rem;
   font-size: 1.1rem;
   border: none;
@@ -1490,6 +1479,6 @@ li button:hover {
   align-self: flex-start;
 }
 
-.playlist-submit:hover {
+.playlist-submit:hover, .contacts-container button:hover, .submit-button:hover {
   background-color:red;
 }

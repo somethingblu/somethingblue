@@ -129,7 +129,7 @@ const handleDelete = async (id) => {
                             {/* <p>Enter End Date:</p>
                             <input type='date' placeholder='Enter end date'required></input> */}
                             <textarea name='desciption' type='text' value={form.desciption} onChange={handleChange} placeholder='Is there a time it needs to be done? Extra notes'></textarea>
-                            <button>Submit here</button>
+                            <button className='submit-button'>Submit here</button>
                         </form>
                     </div>
                 </div>

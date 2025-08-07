@@ -160,9 +160,7 @@ const Budget = () => {
         ></div>
         <img src={cake} alt="cake" className="cake" />
       </div>
-      <div>
-      <p>Spent: ${Number(totalSpent.toFixed(2))} / ${Number(budget.toFixed(2))}</p>
-      </div>
+      <p className='budget-p'>Spent: ${Number(totalSpent.toFixed(2))} / ${Number(budget.toFixed(2))}</p>
       <div className='dates'> 
         <ul>
         {expenses.map((e, ind) => (
